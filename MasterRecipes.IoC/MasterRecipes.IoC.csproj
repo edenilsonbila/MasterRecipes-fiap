@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>c0972bb4-c3ed-41d4-87be-6c973c40eeb6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.ResponseCompression" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.2.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MasterRecipes.Application\MasterRecipes.Application.csproj" />
+    <ProjectReference Include="..\MasterRecipes.Infra\MasterRecipes.Infra.csproj" />
+    <ProjectReference Include="..\MasterRecipes.Persistence\MasterRecipes.Data.csproj" />
+  </ItemGroup>
+
+</Project>
