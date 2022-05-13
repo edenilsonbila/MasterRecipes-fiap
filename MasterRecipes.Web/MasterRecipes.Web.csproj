@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MasterRecipes.IoC\MasterRecipes.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\fonts\" />
+  </ItemGroup>
+
 </Project>
