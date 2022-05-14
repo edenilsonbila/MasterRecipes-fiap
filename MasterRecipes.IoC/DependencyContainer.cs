@@ -1,7 +1,7 @@
 ﻿using MasterRecipes.Data.Repositorys;
 using MasterRecipes.Domain.Interfaces;
 using MasterRecipes.Domain.Models;
-using MasterRecipes.Persistence.Context;
+using MasterRecipes.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;

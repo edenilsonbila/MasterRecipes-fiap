@@ -1,5 +1,7 @@
-﻿using MasterRecipes.Mvc.Models;
+﻿using MasterRecipes.Data.Context;
+using MasterRecipes.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 namespace MasterRecipes.Mvc.Controllers
@@ -7,15 +9,17 @@ namespace MasterRecipes.Mvc.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private Context _ctx;
+        public HomeController(ILogger<HomeController> logger, Context context)
         {
+            _ctx = context;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View();
+
+            return View(_ctx.Receitas.ToList());
         }
 
         public IActionResult Privacy()

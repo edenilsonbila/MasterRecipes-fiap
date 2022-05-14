@@ -1,0 +1,89 @@
+﻿@model Receita
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Contact Section Begin -->
+<section class="contact-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form asp-action="Nova" enctype="multipart/form-data" class="contact-form">
+                    <h3>Cadastrar Receita</h3>
+                    <h4>Dados Básicos</h4>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label style="display:flex !important" class="">TITULO</label>
+                            <input asp-for="Titulo" class="form-control" placeholder="Titulo" />
+                            <span asp-validation-for="Titulo" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="display:flex !important" class="">DESCRIÇÃO</label>
+                            <input asp-for="Descricao" class="form-control" placeholder="Descricao" />
+                        </div>
+                        <div class="col-lg-3">
+                            <label style="display:flex !important" class="">TEMPO PREPARO (minutos)</label>
+                            <input asp-for="TempoPreparo" class="form-control" placeholder="Tempo Preparo" />
+                            <span asp-validation-for="TempoPreparo" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-3">
+                            <label style="display:flex !important" class="">DIFICULDADE</label>
+                            <select asp-for="Dificuldade" class="form-control" placeholder="Descricao">
+                                <option value="Facil">Fácil</option>
+                                <option value="Moderado">Moderado</option>
+                                <option value="Dificil">Dificil</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <label style="display:flex !important" class="">TAGS <span style="color:red;"> (Separados por virgula)</span></label>
+                            <input type="text" id="Tags" name="Tags" class="form-control" />
+                        </div>
+                        <div class="col-lg-6">
+                            <label style="display:flex !important" class="">Categoria</label>
+                            <div class="form-group">
+                                <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.Categorias"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label style="display:flex !important" class="">Modo Preparo</label>
+                            <textarea asp-for="ModoPreparo" placeholder="Modo Preparo"></textarea>
+                        </div>
+                    </div>
+                    <h4>Igredientes</h4>
+                    <button type="button" id="addIgrediente">+</button>
+                    <div class="row">
+                        <input type="hidden" id="totalLans" value="0" />
+                        <div id="inputFormRow" style="width: 100%">
+                            <div class="input-group mb-3">
+                                <br />
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div id="newRow" style="display:contents">
+                        </div>
+                    </div>
+                    @*                    <h4>Imagens</h4>
+                        <button type="button" id="addImagem">+</button>
+                        <div class="row">
+                        <input type="hidden" id="totalImages" value="0" />
+                        <div id="inputImageRow" style="width: 100%; display:contents;">
+                        <div class="input-group mb-3">
+                        <br />
+                        <div class="input-group-append"></div>
+                        </div>
+                        </div>
+                        <div id="newImage" style="display:contents">
+                        </div>
+                        </div>*@
+                    <button type="button" id="createButton">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/receita.js"></script>

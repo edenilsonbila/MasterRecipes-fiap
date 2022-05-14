@@ -1,0 +1,99 @@
+﻿@using MasterRecipes.Domain.Models
+@model Receita
+
+<!-- Hero Search Section Begin -->
+<div class="hero-search set-bg" data-setbg="img/search-bg.jpg">
+    <div class="container">
+        <div class="filter-table">
+            <form action="#" class="filter-search">
+                <input type="text" placeholder="Search recipe">
+                <select id="category">
+                    <option value="">Categoria</option>
+                </select>
+                <select id="tag">
+                    <option value="">Tags</option>
+                </select>
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Hero Search Section End -->
+<!-- Single Recipe Section Begin -->
+<section class="single-page-recipe spad">
+    <div class="recipe-top">
+        <div class="container-fluid">
+            <div class="recipe-title">
+                <span>~ @Model.Igredientes.Count / @Model.TempoPreparo / @Model.Dificuldade / @Model?.Categoria?.Titulo</span>
+                <h2>@Model.Titulo</h2>
+                <ul class="tags">
+                    @foreach (var item in @Model.Tags)
+                    {
+                        <li>@item.Tag</li>
+                    }
+                </ul>
+            </div>
+            <img src="~/img/Uploaded/@Model.Imagens.FirstOrDefault(e => e.Principal == "S")?.Source" alt="">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="ingredients-item">
+                    <div class="intro-item">
+                        <img src="~/img/Uploaded/@Model.Imagens.FirstOrDefault(e => e.Principal == "S")?.Source" alt="">
+                        <h2>@Model.Titulo</h2>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div class="reviews">4.9 de 25 reviews</div>
+                        <div class="recipe-time">
+                            <ul>
+                                <li>Tempo preparo: <span>@Model.TempoPreparo</span></li>
+                                <li>Dificuldade: <span>@Model.Dificuldade</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ingredient-list">
+                        <div class="recipe-btn">
+                            <a href="#">Imprimir Receita</a>
+                            <a href="#" class="black-btn">Fixar Receita</a>
+                        </div>
+                        <div class="list-item">
+                            <h5>Ingredients</h5>
+                            <div class="dressing-list">
+                                <ul>
+                                    @foreach (var item in Model.Igredientes)
+                                    {
+                                        <li>@item.Quantidade - @item.UnidadeMedida - @item.Descricao</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="recipe-right">
+                    <div class="recipe-desc">
+                        <h3>Descrição</h3>
+                        <p>@Model.Descricao</p>
+                    </div>
+                    <div class="instruction-list">
+                        <h3>Modo de Preparo</h3>
+                        <ul>
+                            <li>
+                                @Model.ModoPreparo
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Single Recipe Section End -->

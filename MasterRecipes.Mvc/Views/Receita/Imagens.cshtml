@@ -1,0 +1,56 @@
+﻿@model Receita
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Contact Section Begin -->
+<section class="contact-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="contact-section spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form asp-action="Imagens" class="form-horizontal dropzone dz-clickable" enctype="multipart/form-data" id="dzuploadform" method="post" role="form">
+                                    <h3>Que tal cadastrar algumas imagens para sua receita?</h3>
+                                    <h4>Imagens</h4>
+                                    <input type="hidden" id="modelId" name="modelId" value="@Model.Id">
+                                    <div class="dz-default dz-message"><span>Arraste e solte seus arquivos aqui, ou clique para selecioanar manualmente!</span></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/receita.js"></script>
+
+<script>
+    $(document).ready(function(){
+         Dropzone.options.dzuploadform = {
+        autoProcessQueue: false,
+        async: true,
+        uploadMultiple: true,
+        addRemoveLinks: true,
+        parallelUploads: 10,
+        acceptedFiles: "image/*",
+        capture: true,
+        init: function () {
+            myDropzone = this;
+            $("#dzsubmit").click(function () {
+                myDropzone.processQueue();
+            });
+            this.on("success", function () {
+              window.location.href = 'home/index';
+            });
+        }
+    };
+    });
+</script>

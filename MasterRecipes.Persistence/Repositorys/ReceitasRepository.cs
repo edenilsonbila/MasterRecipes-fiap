@@ -1,6 +1,6 @@
 ﻿using MasterRecipes.Domain.Interfaces;
 using MasterRecipes.Domain.Models;
-using MasterRecipes.Persistence.Context;
+using MasterRecipes.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace MasterRecipes.Data.Repositorys
     //Aqui é onde é implementado os comandos proprios desta entidade
     public class ReceitasRepository : BaseRepository<Receita>, IReceitasRepository
     {
-        public ReceitasRepository(Context context) : base(context)
+        public ReceitasRepository(MasterRecipes.Data.Context.Context context) : base(context)
         {
 
         }

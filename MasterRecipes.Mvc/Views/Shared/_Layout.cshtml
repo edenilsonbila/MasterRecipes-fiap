@@ -13,11 +13,13 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="~/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/css/dropzone/basic.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/dropzone/dropzone.css" />
 </head>
 
 <body>
@@ -30,25 +32,24 @@
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                <a href="./index.html"><img src="~/img/logo.png" alt=""></a>
             </div>
             <div class="nav-menu">
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="#">Home</a></li>
                         <li>
-                            <a href="#">Pages</a>
+                            <a href="#">Paginas</a>
                             <ul class="sub-menu">
-                                <li><a href="about-me.html">About Me</a></li>
-                                <li><a href="categories.html">Categories</a></li>
-                                <li><a href="recipe.html">Recipe</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="about-me.html">Sobre</a></li>
+                                <li><a href="categories.html">Categorias</a></li>
+                                <li><a href="/receita/nova">Enviar Receita</a></li>
+                                <li><a href="contact.html">Contato</a></li>
                             </ul>
                         </li>
-                        <li><a href="recipe.html">Recipes</a></li>
-                        <li><a href="categories.html">Best Of</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/receita/nova">Enviar Receita</a></li>
+                        <li><a href="categories.html">Melhores</a></li>
+                        <li><a href="contact.html">Contato</a></li>
                     </ul>
                 </nav>
                 <div class="nav-right search-switch">
@@ -73,13 +74,11 @@
                     <div class="fs-left">
                         <div class="logo">
                             <a href="./index.html">
-                                <img src="img/footer-logo.png" alt="">
+                                <img src="~/img/footer-logo.png" alt="">
                             </a>
                         </div>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverra maecenas accumsan lacus vel facilisis.
+                            MasterRecipes seu melhor site de receitas
                         </p>
                     </div>
                 </div>
@@ -121,12 +120,14 @@
     </div>
     <!-- Search model end -->
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/main.js"></script>
+    @RenderSection("Scripts",false)
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery.slicknav.js"></script>
+    <script src="~/js/jquery.nice-select.min.js"></script>
+    <script src="~/js/mixitup.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/dropzone/dropzone.js"></script>
 </body>
 
 </html>

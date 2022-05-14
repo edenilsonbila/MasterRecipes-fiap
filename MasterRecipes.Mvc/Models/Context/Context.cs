@@ -11,6 +11,7 @@ namespace MasterRecipes.Data.Context
 {
     public class Context : DbContext
     {
+
         public Context(DbContextOptions<Context> options) : base(options)
         {
 
@@ -20,13 +21,12 @@ namespace MasterRecipes.Data.Context
         public DbSet<ReceitaIgrediente> ReceitaIgredientes { get; set; }
         public DbSet<ReceitaImagem> ReceitaImagens { get; set; }
         public DbSet<ReceitaTags> ReceitaTags { get; set; }
-        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            //modelBuilder.Entity<Receita>().Property(x => x.CategoriaId)
+            modelBuilder.Entity<Receita>()
+     .Metadata.SetNavigationAccessMode(PropertyAccessMode.Field);
         }
-
     }
 }

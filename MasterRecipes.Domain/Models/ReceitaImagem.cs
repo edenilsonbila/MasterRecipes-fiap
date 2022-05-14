@@ -13,5 +13,7 @@ namespace MasterRecipes.Domain.Models
         public string Source { get; set; }
 
         public int ReceitaId { get; set; }
+
+        public string Principal { get; set; }
     }
 }
